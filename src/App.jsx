@@ -10,10 +10,6 @@ import Box from './component/Box'
 // 6. 박스의 색깔(승패 결과에 따라 테두리 색이 바뀐다) 승-초, 패-빨, 비김-검
 
 const choice = {
-  first: {
-    name: "first",
-    img: "https://www.emojiall.com/images/240/microsoft-teams/15.0/1f914.png"
-  },
   rock: {
     name: "Rock",
     img: "https://www.emojiall.com/images/svg/microsoft-teams-color/270a.svg"
@@ -28,17 +24,27 @@ const choice = {
   }
 }
 function App() {
-  const [userSelect, setUserSelect] = useState(choice.first);
+  const [userSelect, setUserSelect] = useState(choice.rock);
+  const [computerselect, setconputerSelect] = useState(null);
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice])
+    let computerChoice = randomChoite()
+  };
+
+  const randomChoite = () => {
+    let itemArray = Object.keys(choice);
+    console.log("item array", itemArray)
+
+    let randomItem = Math.random()
+    console.log("random value", randomItem)
   }
 
   return (
     <>
       <div className="main">
         <Box title="You" item={userSelect}/>
-        {/* <Box title="Computer"/> */}
+        <Box title="Computer" item={computerselect} />
       </div>
       <div className="main">
         <button className="btn" onClick={() => play("scissor")}>가위</button>
