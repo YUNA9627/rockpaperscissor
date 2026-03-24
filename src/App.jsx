@@ -10,6 +10,10 @@ import Box from './component/Box'
 // 6. 박스의 색깔(승패 결과에 따라 테두리 색이 바뀐다) 승-초, 패-빨, 비김-검
 
 const choice = {
+  first: {
+    name: "first",
+    img: "https://www.emojiall.com/images/240/microsoft-teams/15.0/1f914.png"
+  },
   rock: {
     name: "Rock",
     img: "https://www.emojiall.com/images/svg/microsoft-teams-color/270a.svg"
@@ -24,7 +28,7 @@ const choice = {
   }
 }
 function App() {
-  const [userSelect, setUserSelect] = useState(null);
+  const [userSelect, setUserSelect] = useState(choice.first);
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice])
