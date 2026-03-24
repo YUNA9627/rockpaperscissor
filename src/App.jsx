@@ -12,15 +12,15 @@ import Box from './component/Box'
 const choice = {
   rock: {
     name: "Rock",
-    img: "https://png.pngtree.com/png-clipart/20210228/ourmid/pngtree-beautiful-rock-in-the-river-png-png-image_2977572.jpg"
+    img: "https://www.emojiall.com/images/svg/microsoft-teams-color/270a.svg"
   },
   paper: {
     name: "Paper",
-    img: "https://cdn-icons-png.flaticon.com/512/3731/3731553.png",
+    img: "https://www.emojiall.com/images/svg/microsoft-teams-color/1f590-fe0f.svg",
   },
   scissor: {
     name: "Scissor",
-    img: "https://cdn-icons-png.flaticon.com/512/541/541957.png"
+    img: "https://www.emojiall.com/images/svg/microsoft-teams-color/270c-fe0f.svg"
   }
 }
 function App() {
@@ -37,9 +37,9 @@ function App() {
         {/* <Box title="Computer"/> */}
       </div>
       <div className="main">
-        <button onClick={() => play("scissor")}>가위</button>
-        <button onClick={() => play("rock")}>바위</button>
-        <button onClick={() => play("paper")}>보</button>
+        <button className="btn" onClick={() => play("scissor")}>가위</button>
+        <button className="btn" onClick={() => play("rock")}>바위</button>
+        <button className="btn" onClick={() => play("paper")}>보</button>
       </div>
     </>
   )

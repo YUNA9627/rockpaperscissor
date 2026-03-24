@@ -1,13 +1,28 @@
 .box {
-  border: 1px solid black;
+  border: 10px solid #f5c518;
+  border-radius: 40px;
   width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1a1a2e;
+  color: #f5c518;
 }
 
 .item-img {
-  width: 400px;
+  width: 300px;
 }
 
 .main {
   display: flex;
   justify-content: center;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.btn {
+  padding: 8px 16px;
+  background: none;
+  border: 2px solid #222;
+  border-radius: 10px;
 }
