@@ -1,7 +1,9 @@
 .box {
-  border: 10px solid #f5c518;
+  border: 6px solid #f5c518;
   border-radius: 40px;
-  width: 500px;
+  width: 400px;
+  height: 500px;
+  background: #201f29;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,15 +11,17 @@
 }
 
 .box.win {
-  border: 10px solid green;
+  border: 6px solid green;
+  background: rgb(42, 53, 42);
 }
 
 .box.lose {
-  border: 10px solid red;
+  border: 6px solid red;
+  background: rgb(61, 51, 51);
 }
 
 .box.tie {
-  border: 10px solid black;
+  border: 6px solid #333;
 }
 
 .item-img {
@@ -33,7 +37,33 @@
 
 .btn {
   padding: 8px 16px;
-  background: none;
-  border: 2px solid #222;
-  border-radius: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btn-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #1e1d2e;
+  border: 4px solid #f5c518;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-circle>img {
+  width: 40px;
+  height: 40px;
+}
+
+.btn>span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 2px;
 }
