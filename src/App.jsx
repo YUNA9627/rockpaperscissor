@@ -78,7 +78,7 @@ function App() {
   }
 
   const randomChoite = () => {
-    let itemArray = Object.keys(choice); // 객체에 키값만 뽑아서 Array로 만들어주는 함수
+    let itemArray = ["rock", "paper", "scissor"]; // 객체에 키값만 뽑아서 Array로 만들어주는 함수
     console.log("item array", itemArray)
 
     let randomItem = Math.floor(Math.random()*itemArray.length);
