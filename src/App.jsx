@@ -10,6 +10,10 @@ import Box from './component/Box'
 // 6. 박스의 색깔(승패 결과에 따라 테두리 색이 바뀐다) 승-초, 패-빨, 비김-검
 
 const choice = {
+  initial: {
+    name: "Initial",
+    img: "https://www.emojiall.com/images/240/microsoft-teams/15.0/1f914.png"
+  },
   rock: {
     name: "Rock",
     img: "https://www.emojiall.com/images/svg/microsoft-teams-color/270a.svg"
@@ -23,15 +27,55 @@ const choice = {
     img: "https://www.emojiall.com/images/svg/microsoft-teams-color/270c-fe0f.svg"
   }
 }
+
 function App() {
-  const [userSelect, setUserSelect] = useState(choice.rock);
-  const [computerselect, setconputerSelect] = useState(null);
+  const [userSelect, setUserSelect] = useState(choice.initial);
+  const [computerselect, setcomputerSelect] = useState(choice.initial);
+  const [result, setResult] = useState("");
+  // const [initialImage, setInitialImage] = useState(true);
 
   const play = (userChoice) => {
     setUserSelect(choice[userChoice])
     let computerChoice = randomChoite();
-    setconputerSelect(computerChoice);
+    setcomputerSelect(computerChoice);
+    setResult(judgement(choice[userChoice],computerChoice));
   };
+
+  const judgement = (user, computer) => {
+
+    // user == computer 비김(tie)
+    // user == rock, computer == "scissors" 이김(win)
+    // user == "rock" computer == paper 짐(lose)
+    // user == scissor computer == paper 이김(win)
+    // user == scissors computer rock 짐
+    // user == paper computer rock 이김
+    // user paper computer scissors 짐
+
+    // if(user.name == computer.name){
+    //   return "tie"
+    // } else if(user.name == "rock"){
+    //   if(computer == "scissor"){
+    //     return "win"
+    //   } else {
+    //     return "lose"
+    //   }
+    // }
+    if(user.name == computer.name){
+      return "tie";
+    } else if(user.name == "Rock")
+      return computer.name == "Scissor"? "win" : "lose";
+    else if (user.name=="Scissor")
+      return computer.name == "Paper"? "win" : "lose";
+    else if (user.name == "Paper")
+      return computer.name == "Rock" ? "win" : "lose";
+
+  }
+
+  const reversResult = (result) => {
+    if (result === "win") return "lose";
+    if (result === "lose") return "win";
+    if (result === "tie") return "tie";
+  }
 
   const randomChoite = () => {
     let itemArray = Object.keys(choice); // 객체에 키값만 뽑아서 Array로 만들어주는 함수
@@ -46,8 +90,8 @@ function App() {
   return (
     <>
       <div className="main">
-        <Box title="You" item={userSelect}/>
-        <Box title="Computer" item={computerselect} />
+        <Box title="You" item={userSelect} result={result} />
+        <Box title="Computer" item={computerselect} result={reversResult(result)} />
       </div>
       <div className="main">
         <button className="btn" onClick={() => play("scissor")}>가위</button>
