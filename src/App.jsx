@@ -94,9 +94,24 @@ function App() {
         <Box title="Computer" item={computerselect} result={reversResult(result)} />
       </div>
       <div className="main">
-        <button className="btn" onClick={() => play("scissor")}>가위</button>
-        <button className="btn" onClick={() => play("rock")}>바위</button>
-        <button className="btn" onClick={() => play("paper")}>보</button>
+        <button className="btn" onClick={() => play("scissor")}>
+          <div className="btn-circle">
+          <img src="https://www.emojiall.com/images/svg/microsoft-teams-color/270c-fe0f.svg" alt="" />
+          </div>
+          <span classname="btn-name">가위</span>
+        </button>
+        <button className="btn" onClick={() => play("rock")}>
+          <div className="btn-circle">
+          <img src="https://www.emojiall.com/images/svg/microsoft-teams-color/270a.svg" alt="" />
+          </div>
+          <span classname="btn-name">바위</span>
+        </button>
+        <button className="btn" onClick={() => play("paper")}>
+          <div className="btn-circle">
+          <img src="https://www.emojiall.com/images/svg/microsoft-teams-color/1f590-fe0f.svg" alt="" />
+          </div>
+          <span classname="btn-name">보</span>
+        </button>
       </div>
     </>
   )
